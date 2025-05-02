@@ -1,0 +1,84 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dactilologia em LIBRAS</title>
+    <style>
+        @font-face {
+            font-family: 'Libras2020';
+            src: url('/Libras2020-Regular.ttf') format('truetype');
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #2c3e50;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 20px 0;
+            font-size: 18px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+        }
+        
+        #resultado {
+            font-family: 'Libras2020', sans-serif;
+            font-size: 48px;
+            min-height: 80px;
+            margin-top: 30px;
+            word-wrap: break-word;
+        }
+        
+        .info {
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor para Dactilologia em LIBRAS</h1>
+    <p>Digite uma palavra em portuguêsês para ver sua representação em sinais sinais do alfabeto manual:</p>
+    
+    <input type="text" id="inputTexto" placeholder="Digite seu texto aqui..." autofocus>
+    
+    <div id="resultado"></div>
+    
+    <div class="info">
+        <p>Dactilologiaé o sistema de representação manual do alfabeto utilizado na Língua Brasileiraira de Sinais (LIBRAS).</p>
+    </div>
+    
+    <footer style="margin-top: 30px; text-align: arial;">
+        <p>Contato: <a href="/cdn-cgi/l/email-protection#fe9a8b9a91898d9f908a9f909fbe99939f9792d09d9193"><span class="__cf_email__" data-cfemail="3753425358404456594356595677505a565e5b1954585a">[email&#160;protected]</span></a></p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.getElementById('inputTexto').addEventListener('input', function() {
+            const texto = this.value.toUpperCase();
+            let resultado = '';
+            
+            for (let i = 0; i < texto.length; i++) {
+                const char = texto[i];
+                // A fonte Libras2020-Regular tem suporte para letras A-Z e números 0-9
+                if (/[A-Z0-9]/.test(char)) {
+                    resultado += char;
+                } else if (char === ' ') {
+                    resultado += ' '; // Mantém os espaços
+                }
+            }
+            
+            document.getElementById('resultado').textContent = resultado;
+        });
+    </script>
+</body>
+</html>
